@@ -1,6 +1,6 @@
 from os import environ
 from Bard import Chatbot
-from flask import Flask, request, render_template, redirect
+from flask import Flask, request, render_template
 
 server = Flask(__name__)
 
@@ -13,7 +13,7 @@ chatbot = Chatbot(token)
 def generate_response(prompt):
     try:
         response = chatbot.ask(prompt)
-        return response
+        return response["content"]
     except Exception as e:
         return e
 
