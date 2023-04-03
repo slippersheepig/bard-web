@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!--自适应屏幕大小-->
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="description" content="使用谷歌Bard接口，实现简单HTML网页版在线聊天"/>
+<head>
+    <meta charset="UTF-8">
+    <title>GoogleBard</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}?v=2023032301">
+</head>
+
+<body>
+<div align="center">
+    <div class="chat_window">
+        <div class="top_menu">
+            <div class="buttons">
+                <div class="button close"></div>
+                <div class="button minimize"></div>
+                <div class="button maximize"></div>
+            </div>
+            <div class="title">Bard Chat</div>
+        </div>
+        <div id="loading" style="display:none; color:red"><b>后端正在处理，请稍等，切勿重复提交</b></div>
+        <ul class="messages">
+            <div style="text-align: left; color: green">
+                <pre style="white-space: pre-wrap; word-wrap:break-word" id="chatlog"></pre>
+            </div>
+        </ul>
+        <div class="bottom_wrapper clearfix">
+            <textarea class="message_input_wrapper" placeholder="点击这里输入问题" id="chatinput"></textarea>
+            <button class="send_message" id="sendbutton">提交</button>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
