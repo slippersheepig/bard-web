@@ -1,0 +1,4 @@
+GoogleBard
+flask
+gunicorn
+gevent
