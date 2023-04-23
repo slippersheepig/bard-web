@@ -19,6 +19,9 @@ def generate_response(prompt):
 
 @server.route("/")
 def home():
+    chatbot.conversation_id = ""
+    chatbot.response_id = ""
+    chatbot.choice_id = ""
     return render_template("chat.html")
 
 @server.route("/get")
