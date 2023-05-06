@@ -9,17 +9,14 @@ input.addEventListener("keydown", function (event) {
 
 // Add your JavaScript here
 document.getElementById("sendbutton").addEventListener("click", function () {
-    let loading = document.getElementById('loading');
-    loading.style.display = 'block';
     // Get the user's message from the input field
     var message = document.getElementById("chatinput").value;
+    var chatlog = document.getElementById("chatlog");
+    var response = document.createElement("div");
     if (message.length < 1) {
-        var response = document.createElement("div");
         response.innerHTML = "🤔<br>🤖<br>Message cannot be null\n问题不能为空";
         chatlog.appendChild(response);
-        // Scroll the chatlog to the bottom
-        chatlog.scrollTop = chatlog.scrollHeight;
-        loading.style.display = 'none';
+        response.scrollIntoView({ behavior: 'smooth', block: 'end' });
     } else {
         // Clear the input field
         document.getElementById("chatinput").value = "";
@@ -27,15 +24,17 @@ document.getElementById("sendbutton").addEventListener("click", function () {
         var xhr = new XMLHttpRequest();
         xhr.open("GET", "/get?msg=" + message);
         xhr.send();
+        // Display "typing" message while the bot is thinking
+        var typingMessage = document.createElement("div");
+        typingMessage.innerHTML = "🤖<br>正在输入...";
+        chatlog.appendChild(typingMessage);
+        typingMessage.scrollIntoView({ behavior: 'smooth', block: 'end' });
         xhr.onload = function () {
             // Append the chatbot's response to the chatlog
-            var chatlog = document.getElementById("chatlog");
-            var response = document.createElement("div");
+            chatlog.removeChild(typingMessage);
             response.innerHTML = "🤔<br>" + message + "<br>🤖" + marked.parse(xhr.responseText);
             chatlog.appendChild(response);
-            // Scroll the chatlog to the bottom
-            chatlog.scrollTop = chatlog.scrollHeight;
-            loading.style.display = 'none';
+            response.scrollIntoView({ behavior: 'smooth', block: 'end' });
         }
     }
 });
