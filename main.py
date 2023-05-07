@@ -14,8 +14,8 @@ def generate_response(prompt):
     try:
         response = chatbot.ask(prompt)
         return response["content"]
-    except Exception as e:
-        return e
+    except BaseException as e:
+        return str(e)
 
 @server.route("/")
 def home():
