@@ -1,9 +1,8 @@
 # bardchat
 - 基于[acheong08/Bard](https://github.com/acheong08/Bard)使用谷歌Bard接口，实现简单HTML网页版在线聊天（支持连续对话及会话隔离）
 - 目前已知官方限制
-  + 可用地区：仅限美国、英国
-  + 识别语言：仅限英语
-  + 输出内容：仅限英语
+  + 识别语言：仅限英语、日语、韩语
+  + 输出内容：仅限英语、日语、韩语
 - 更多问题可参考官方[FAQ](https://bard.google.com/faq)
 ### 部署
 #### 获取COOKIE
