@@ -14,8 +14,8 @@ services:
     image: sheepgreen/bard-web
     container_name: bardchat
     environment:
-      - BARD__Secure-1PSID=上方获取到的value值
-      - BARD__Secure-1PSIDTS=上方获取到的value值
+      - BARD__Secure_1PSID=上方获取到的value值
+      - BARD__Secure_1PSIDTS=上方获取到的value值
     ports:
       - "9898:8088" #8088为容器内端口，不可更换；9898为外部端口，可自行更换
     restart: always
