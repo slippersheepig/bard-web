@@ -5,8 +5,8 @@ from flask import Flask, request, render_template
 server = Flask(__name__)
 
 # get token
-Secure_1PSID = environ.get("BARD__Secure-1PSID")
-Secure_1PSIDTS = environ.get("BARD__Secure-1PSIDTS")
+Secure_1PSID = environ.get("BARD__Secure_1PSID")
+Secure_1PSIDTS = environ.get("BARD__Secure_1PSIDTS")
 
 # init chatbot
 chatbot = Chatbot(Secure_1PSID, Secure_1PSIDTS)
