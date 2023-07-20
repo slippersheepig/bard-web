@@ -1,4 +1,4 @@
-GoogleBard==1.2.2
+GoogleBard
 flask
 gunicorn
 gevent
