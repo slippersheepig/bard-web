@@ -5,10 +5,11 @@ from flask import Flask, request, render_template
 server = Flask(__name__)
 
 # get token
-token = environ.get("BARD_TOKEN")
+Secure_1PSID = environ.get("BARD__Secure-1PSID")
+Secure_1PSIDTS = environ.get("BARD__Secure-1PSIDTS")
 
 # init chatbot
-chatbot = Chatbot(token)
+chatbot = Chatbot(Secure_1PSID, Secure_1PSIDTS)
 
 def generate_response(prompt):
     try:
